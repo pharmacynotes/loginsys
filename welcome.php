@@ -49,9 +49,34 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true) {
       </button>
     </a>
       </div>
+      <!-- <div class="container text-center ">
+    <button class="col-6 btn btn-primary text-center  my-1 forVisi" onclick="forVisible()" >View Page</button>
+    </div> -->
+    <div class="container-fluid">
+
+      <button class="btn btn-warning " onclick="forVisible()"><a href="https://pharmacynotes.github.io/2nd_sem/practical/p_aphe_pdf/p_aphe.pdf" target="myFrame" class="text-decoration-none text-dark">View PDF</a></button>
+      </div>
     </div>
+    <iframe id="notVisible" class="col-12"  src="" name="myFrame"></iframe>
+<script>
+  var h = window.innerHeight;
+  function forVisible() {
+  document.getElementById("notVisible").style.height = h + "px";
+  }
+</script>
+<!-- <script>
+  document.getElementById("notVisible").style.display = "none";
+  function forVisible() {
+  var x = document.getElementById("notVisible");
+  // if (x.style.display === "none") {
+  //   x.style.display = "block";
+  // } else {
+  //   x.style.display = "none";
+  // }
+  document.getElementById("notVisible").style.display = "block";
 
-
+}
+</script> -->
 
 <!-- https://pharmacynotes.github.io/2nd_sem/practical/p_aphe_pdf/p_aphe.pdf -->
 
