@@ -7,16 +7,32 @@ include 'partials/_dbconnect.php';
 $username = $_POST["username"];
 $password = $_POST["password"];
 $cpassword = $_POST["cpassword"];
-$exists = false;
-if(($password == $cpassword) && $exists == false){
-  $sql = "INSERT INTO `merelog`.`hamarlog`(`username`,`password`) VALUES ('$username','$password')";
-  $result = mysqli_query($conn, $sql);
-  if($result){
-    $showAlert = true;
-  }
-  }else{
-    $showError = "Password do not match";
+// $exists = false;
+
+// Check whether this username Exists
+$existSql = "SELECT * FROM `hamarlog` WHERE username = '$username' ";
+$result = mysqli_query($conn, $existSql);
+$numExistRows = mysqli_num_rows($result);
+if ($numExistRows > 0) {
+  // $exists = true; 
+  $showError = "Username already exist.";
 }
+else {
+  // $exists = false;
+  if($password == $cpassword){
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+    $sql = "INSERT INTO `merelog`.`hamarlog`(`username`,`password`) VALUES ('$username','$hash')";
+    $result = mysqli_query($conn, $sql);
+    if($result){
+      $showAlert = true;
+    }
+    }else{
+      $showError = "Password do not match.";
+  }
+}
+
+
+
 }
 ?>
 
@@ -54,15 +70,15 @@ if(($password == $cpassword) && $exists == false){
     <div class="container-md">
 
     <h1 class="text-center">Signup to our website.</h1>
-    <form action="/loginsys/signup.php" method="post">
+    <form action="/loginsys/index.php" method="post">
   <div class="mb-3 col-md-6">
     <!-- Server always find from name not from id -->
-    <label for="username" class="form-label">Username</label>
-    <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+    <label for="username"  class="form-label">Username</label>
+    <input type="text" maxlength="11" class="form-control" id="username" name="username" aria-describedby="emailHelp">
   </div>
   <div class="mb-3 col-md-6">
     <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control" id="password" name="password" >
+    <input type="password" maxlength="30" class="form-control" id="password" name="password" >
   </div>
   <div class="mb-3 col-md-6">
     <label for="cpassword" class="form-label">Confirm Password</label>

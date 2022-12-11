@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true) {
+  header("location: index.php");
+  exit;
+}
+
+
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,10 +18,51 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Welcome - <?php $_SESSION['username'] ?></title>
   </head>
   <body>
   <?php require 'partials/_nav.php' ?>
+
+    <!-- Welcome - <?php echo $_SESSION['username'] ?> -->
+
+
+    <div class="container my-3">
+      <div class="alert alert-success">
+        <h4 class="alert-heading text-uppercase">Welcome - <?php echo $_SESSION['username'] ?>!</h4>
+        <p>Hey how are you doing? Welcome to iSecure. You are logged in as <strong class="text-capitalize"> <?php echo $_SESSION['username'] ?> 
+        </strong>. Aww yeah, you successfully read this important alert message.
+      </p> <hr>
+      <p class="mb-0">
+        Whenever you need to, be sure to logout <a href="/loginsys/logout.php">using this link.</a>
+      </p>
+      </div>
+      <div class="container my-2">
+        <a class="text-decoration-none" href="https://pharmacynotes.github.io/Theory/RAVI%20SIR/Dental_products_chemistry.pdf">
+        <button class="btn btn-warning fst-italic fw-bold" type="button">  
+        DOWNLOAD PDF OF DENTAL PRODUCTS
+      </button>
+    </a>
+      </div>
+      <div class="container my-2">
+        <a class="text-decoration-none" href="https://pharmacynotes.github.io/2nd_sem/practical/p_aphe_pdf/p_aphe.pdf">
+        <button class="btn btn-warning fst-italic fw-bold" type="button">  
+        DOWNLOAD PDF OF DENTAL PRODUCTS
+      </button>
+    </a>
+      </div>
+    </div>
+
+
+
+<!-- https://pharmacynotes.github.io/2nd_sem/practical/p_aphe_pdf/p_aphe.pdf -->
+
+
+
+
+
+
+
+
 
 
     <!-- Optional JavaScript; choose one of the two! -->
