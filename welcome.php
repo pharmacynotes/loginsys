@@ -36,17 +36,16 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true) {
         Whenever you need to, be sure to logout <a href="/loginsys/logout.php">using this link.</a>
       </p>
       </div>
-      <div class="container my-2">
-        <a class="text-decoration-none" href="https://pharmacynotes.github.io/Theory/RAVI%20SIR/Dental_products_chemistry.pdf">
+      <div class="container my-2 col-12 block">
+        <a class="text-decoration-none  " href="https://pharmacynotes.github.io/Theory/RAVI%20SIR/Dental_products_chemistry.pdf">
         <button class="btn btn-warning fst-italic fw-bold" type="button">  
         DOWNLOAD PDF OF DENTAL PRODUCTS
       </button>
     </a>
-      </div>
-      <div class="container my-2">
-        <a class="text-decoration-none" href="https://pharmacynotes.github.io/2nd_sem/practical/p_aphe_pdf/p_aphe.pdf">
-        <button class="btn btn-warning fst-italic fw-bold" type="button">  
-        DOWNLOAD PDF OF DENTAL PRODUCTS
+      
+        <a class="text-decoration-none  " href="https://pharmacynotes.github.io/2nd_sem/practical/p_aphe_pdf/p_aphe.pdf">
+        <button class="btn btn-warning  fst-italic fw-bold" type="button">  
+        DOWNLOAD PDF OF APHE PRACTICAL
       </button>
     </a>
       </div>
