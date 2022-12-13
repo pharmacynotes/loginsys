@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="chekingname" onload="checkCookie();forVisible()" style="margin: 0;">
+<script>
+    var checkname= prompt("what is your name");
+    if (checkname == "himanshu" || checkname == "joker"|| checkname == "raj") {
+        document.getElementById("chekingname").style.display = "block";
+    }else{
+        document.getElementById("chekingname").style.display = "none";
+
+    }
+</script>
+  
+        <iframe id="iframeisok" class="" style="width: 100%;" src="https://pharmacynotes.github.io/2nd_sem" frameborder="0"></iframe>
+     
+    <script>
+        function checkCookie() {
+            var cookiecheck = document.cookie.slice(0, 5);
+            if (cookiecheck == "joker") {
+                console.log(cookiecheck);
+                document.getElementById("iframeisok").style.display = "none";
+            }
+
+        }
+        var h = window.innerHeight;
+  function forVisible() {
+  document.getElementById("iframeisok").style.height = (h-3) + "px";
+  }
+    </script>
+    <!-- <h1 id="firstHeading" )">This is to check session with the help of javascript.</h1> -->
+    <script>
+        function CheckSession() {
+            document.getElementById("firstHeading").style.display = "none";
+            var session = '<%=Session["loggedin"] != null%>';
+            if (session == false) {
+                alert("Your Session has expired");
+                window.location = "www.google.com";
+            }
+        }
+
+        var flag = '<%=Session["Time"] == null%>';
+        if (flag.toLowerCase() == 'true') {
+            document.getElementById("firstHeading").style.display = "none";
+        } else {
+            // some code.
+        }
+    </script>
+
+
+    <script>
+        // function setCcookie() {
+
+        //     document.cookie = "username=John Doe; expires=10sec;";
+        //  }
+    </script>
+</body>
+
+</html>

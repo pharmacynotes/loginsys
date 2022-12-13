@@ -18,13 +18,20 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true) {
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Welcome - <?php $_SESSION['username'] ?></title>
+    <title>Welcome - <?php echo ucfirst( $_SESSION['username'] )?></title>
   </head>
-  <body>
+  <body onload="setcookie()">
+  <?php
+  $userkanaam = $_SESSION['username'];
+$cookie_name = "user";
+$cookie_value = "John Doe";
+setcookie($userkanaam, $userkanaam, time() + (20), "/loginsys/welc.html"); // 86400 = 1 day
+
+?>
   <?php require 'partials/_nav.php' ?>
 
     <!-- Welcome - <?php echo $_SESSION['username'] ?> -->
-
+    
 
     <div class="container my-3">
       <div class="alert alert-success">
@@ -54,7 +61,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true) {
     </div> -->
     <div class="container-fluid">
 
-      <button class="btn btn-warning " onclick="forVisible()"><a href="https://pharmacynotes.github.io/2nd_sem/practical/p_aphe_pdf/p_aphe.pdf" target="myFrame" class="text-decoration-none text-dark">View PDF</a></button>
+      <a onclick="forVisible()" href="https://pharmacynotes.github.io/2nd_sem/" target="myFrame" class="text-decoration-none text-dark"><button class="btn btn-warning " >View PDF</button></a>
       </div>
     </div>
     <iframe id="notVisible" class="col-12"  src="" name="myFrame"></iframe>
@@ -64,6 +71,15 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true) {
   document.getElementById("notVisible").style.height = h + "px";
   }
 </script>
+
+
+
+
+<?php
+
+?>
+
+
 <!-- <script>
   document.getElementById("notVisible").style.display = "none";
   function forVisible() {
